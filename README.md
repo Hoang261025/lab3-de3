@@ -1,6 +1,6 @@
 # lab3-de3 Mạch báo cháy gia đình bằng việc phát hiện khí gas/khói và nhiệt độ.
 # 🔥 ESP32 Smart Fire Alarm System – IoT & FreeRTOS
-
+link wokki : [mô phỏng trên wokki](https://wokwi.com/projects/480202555320653825)
 ## 1. Giới thiệu dự án
 
 **ESP32 Smart Fire Alarm System** là hệ thống cảnh báo cháy thông minh ứng dụng công nghệ IoT, sử dụng vi điều khiển ESP32 để giám sát nồng độ khí gas/khói và nhiệt độ môi trường.
