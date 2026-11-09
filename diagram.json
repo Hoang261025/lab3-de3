@@ -1,0 +1,99 @@
+{
+  "version": 1,
+  "author": "Phạm Văn Hoàng - Tin học công nghiệp 2",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "board-esp32-devkit-c-v4", "id": "esp", "top": 0, "left": 0, "attrs": {} },
+    { "type": "wokwi-gas-sensor", "id": "mq2", "top": -122.1, "left": -281, "attrs": {} },
+    {
+      "type": "wokwi-dht22",
+      "id": "dht",
+      "top": -160,
+      "left": 130,
+      "attrs": { "temperature": "28", "humidity": "60" }
+    },
+    {
+      "type": "wokwi-relay-module",
+      "id": "relayFan",
+      "top": 284.6,
+      "left": -170,
+      "rotate": 90,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-relay-module",
+      "id": "relayPump",
+      "top": 284.6,
+      "left": 118,
+      "rotate": 90,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "rFan",
+      "top": 359.45,
+      "left": -251,
+      "rotate": 180,
+      "attrs": { "value": "220" }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "rPump",
+      "top": 417.6,
+      "left": 143.45,
+      "rotate": 90,
+      "attrs": { "value": "220" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "ledFan",
+      "top": 407,
+      "left": -348.8,
+      "rotate": 270,
+      "attrs": { "color": "green", "label": "Quat" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "ledPump",
+      "top": 401.6,
+      "left": 419,
+      "rotate": 90,
+      "attrs": { "color": "blue", "label": "May bom" }
+    },
+    {
+      "type": "wokwi-buzzer",
+      "id": "bz1",
+      "top": 64.5,
+      "left": 311.7,
+      "rotate": 90,
+      "attrs": { "volume": "0.1" }
+    }
+  ],
+  "connections": [
+    [ "esp:TX", "$serialMonitor:RX", "", [] ],
+    [ "esp:RX", "$serialMonitor:TX", "", [] ],
+    [ "mq2:VCC", "esp:5V", "red", [ "v277.5", "h148.61" ] ],
+    [ "mq2:GND", "esp:GND.1", "black", [ "h19.2", "v239.2" ] ],
+    [ "mq2:AOUT", "esp:34", "green", [ "h38.4", "v172.8" ] ],
+    [ "dht:VCC", "esp:3V3", "red", [ "h-140.2", "v73.9" ] ],
+    [ "dht:GND", "esp:GND.2", "black", [ "h-1", "v73.9" ] ],
+    [ "dht:SDA", "esp:15", "green", [ "h-0.9", "v217.9" ] ],
+    [ "relayFan:VCC", "esp:5V", "red", [] ],
+    [ "relayFan:GND", "esp:GND.1", "black", [ "v-96", "h110.61" ] ],
+    [ "relayFan:IN", "esp:26", "orange", [ "v-134.4", "h120.01" ] ],
+    [ "relayFan:COM", "esp:3V3", "red", [ "h59", "v-334.8" ] ],
+    [ "relayFan:NO", "rFan:1", "green", [] ],
+    [ "rFan:2", "ledFan:A", "green", [ "h-46.8", "v67.2" ] ],
+    [ "relayPump:VCC", "esp:5V", "red", [ "v-48", "h-158.59" ] ],
+    [ "relayPump:GND", "esp:GND.1", "black", [ "h0.4", "v-96" ] ],
+    [ "relayPump:IN", "esp:27", "blue", [ "v-124.8", "h-139.19" ] ],
+    [ "relayPump:COM", "esp:3V3", "red", [ "h46.4", "v-432.8", "h-225.79" ] ],
+    [ "relayPump:NO", "rPump:1", "blue", [] ],
+    [ "rPump:2", "ledPump:A", "blue", [ "h259.2", "v-10.8" ] ],
+    [ "ledPump:C", "esp:GND.2", "black", [ "h-38.4", "v-402.8" ] ],
+    [ "bz1:2", "esp:25", "purple", [ "v-0.4", "h-302.59" ] ],
+    [ "esp:GND.2", "bz1:1", "black", [ "h206.44", "v67.2" ] ],
+    [ "esp:GND.1", "ledFan:C", "black", [ "h-33.41", "v288" ] ]
+  ],
+  "dependencies": {}
+}
